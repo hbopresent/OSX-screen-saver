@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./view/css/normalize.css"/>
+    <link rel="stylesheet" href="./view/css/main.css"/>
+  </head>
+  <body>
+    <section class="screen">
+      <div class="musicPlayerBoard">
+        <h2 class="musicPlayerType">Spotify</h2>
+        <div class="musicInfo"></div>
+        <div class="playerController">
+          <div class="playerButton previousSong">
+            <svg class="playerButtonSvg">
+              <path class="pathElement" d="M13 6 L2 15 L13 24 Z"></path>
+              <path class="pathElement" d="M15 15 L26 6 L26 24 Z"></path>
+            </svg>
+          </div>
+          <div class="playerButton playSong">
+            <svg class="playerButtonSvg">
+              <path class="pathElement" d="M10 4 L10 26 L12 26 L12 4 Z"></path>
+              <path class="pathElement" d="M18 4 L18 26 L20 26 L20 4 Z"></path>
+            </svg>
+          </div>
+          <div class="playerButton nextSong">
+            <svg class="playerButtonSvg transformSvg">
+              <path class="pathElement" d="M13 6 L2 15 L13 24 Z"></path>
+              <path class="pathElement" d="M15 15 L26 6 L26 24 Z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="controlBoard">
+        <div class="sleep"></div>
+        <div class="restart"></div>
+        <div class="shutdown"></div>
+      </div>
+      <div class="signInBoard" id="signInBoard">
+        <div class="headPic"></div>
+        <input type="text" class="username" id="username" placeholder="username"/>
+        <input type="text" class="password" id="password" placeholder="password"/>
+      </div>
+    </section>
+  </body>
+</html>
