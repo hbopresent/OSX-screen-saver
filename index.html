@@ -8,8 +8,18 @@
   <body>
     <section class="screen">
       <div class="musicPlayerBoard">
-        <h2 class="musicPlayerType">Spotify</h2>
-        <div class="musicInfo"></div>
+        <div class="musicPlayerType">
+          <div class="playerBrand"></div>
+        </div>
+        <div class="musicInfo">
+          <div class="albumCover"></div>
+          <div class="albumInfo">
+            <h2 class="albumInfo--style albumInfo__title">A STATE OF TRANCE</h2>
+            <p class="albumInfo--style albumInfo__song">This Is What It Feels Like</p>
+            <p class="albumInfo--style albumInfo__player">Armin van Buuren</p>
+            <p class="albumInfo--style albumInfo__player">Trevor Guthrie</p>
+          </div>
+        </div>
         <div class="playerController">
           <div class="playerButton previousSong">
             <svg class="playerButtonSvg">
@@ -32,13 +42,13 @@
         </div>
       </div>
       <div class="controlBoard">
-        <div class="sleep"></div>
-        <div class="restart"></div>
-        <div class="shutdown"></div>
+        <div class="controlButton unlock"></div>
+        <div class="controlButton restart"></div>
+        <div class="controlButton shutdown"></div>
       </div>
       <div class="signInBoard" id="signInBoard">
         <div class="headPic"></div>
-        <input type="text" class="username" id="username" placeholder="username"/>
+        <!-- <input type="text" class="username" id="username" placeholder="username"/> -->
         <input type="text" class="password" id="password" placeholder="password"/>
       </div>
     </section>
