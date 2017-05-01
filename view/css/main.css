@@ -4,20 +4,26 @@ body {
   height: 100%;
   overflow: hidden;
 }
+input:focus {
+  outline: none;
+}
 .screen {
   width: 100%;
   height: 100%;
   display: inline-block;
-  background-image: url("../img/background.png");
+  background-image: url("../img/background3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 .pathElement {
   stroke: hsl(0, 0%, 100%);
-  stroke-width: 1;
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  fill: hsl(0, 0%, 100%);
+  fill: transparent;
+}
+.musicPlayerPath {
+  stroke-width: 1;
 }
 
 
@@ -27,13 +33,13 @@ body {
 
 /*  music player  */
 .musicPlayerBoard {
-  width: 450px;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-  position: relative;
+  width: 280px;
+  height: 470px;
+  position: absolute;
+  left: calc((100% - 280px) / 2);
+  top: 80px;
   border-radius: 5px;
+  /*display: none;*/
 }
 .musicPlayerBoard::before {
   content: "";
@@ -44,54 +50,53 @@ body {
   opacity: 0.3;
   border-radius: 5px;
 }
-    /* name of music player */
-    .musicPlayerType {
-      width: 100%;
-      height: 25%;
+    /* album cover */
+    .albumCover {
+      width: 90%;
+      height: 252px;
+      background-image: url("../img/album2.jpeg");
+      background-repeat: no-repeat;
+      background-size: contain;
       position: absolute;
-      top: 0%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      top: 3%;
+      left: 5%;
     }
-        .playerBrand {
-          width: 45px;
-          height: 45px;
-          background-image: url("../img/spotify4.png");
-          background-repeat: no-repeat;
-          background-size: contain;
-        }
-    /*.musicPlayerType::after {
-      content: "";
-      display: block;
+    .albumContext {
+      margin: 0;
+      text-align: center;
       width: 100%;
-      height: 1px;
-      background-color: hsl(0, 0%, 100%);
-      opacity: 0.3;
+      color: #FFF;
+      font-weight: 100;
+    }
+    .albumTitle {
       position: absolute;
-      bottom: 0%;
-      left: 0%;
-    }*/
+      top: 58%;
+    }
+    .albumPlayer {
+      position: absolute;
+      top: 63%;
+    }
+
     /* controller of music player */
     .playerController {
       width: 100%;
-      height: 15%;
+      /*height: 15%;*/
       position: absolute;
-      bottom: 0%;
+      bottom: 11.5%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .playerController::before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: hsl(0, 0%, 100%);
-      opacity: 0.3;
-      position: absolute;
-      top: 0%;
-      left: 0%;
+    .playSong {
+      width: 50px;
+      height: 50px;
+      margin-left: 20px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #FFF;
+      border-radius: 50%;
     }
     .playerButton {
       width: 30px;
@@ -100,50 +105,47 @@ body {
       margin-right: 20px;
     }
         .playerButtonSvg {
-          width: 100%;
-          height: 100%;
+          width: 30px;
+          height: 30px;
         }
         .transformSvg {
           transform-origin: center;
           transform: rotateZ(180deg);
         }
-    /* music info */
-    .musicInfo {
-      width: 100%;
-      height: 60%;
+    /* time box */
+    .timeBox {
+      width: 95%;
       position: absolute;
-      top: 25%;
-      display: flex;
-      align-items: center;
+      bottom: 10px;
+      left: 2.5%;
     }
-        .albumCover {
-          width: 180px;
-          height: 180px;
-          background-image: url("../img/album2.jpeg");
-          background-repeat: no-repeat;
-          background-size: contain;
+        .passedTime {
+          color: hsl(0, 0%, 100%);
+          font-size: 0.8rem;
+          font-weight: 100;
+          float: left;
         }
-        .albumInfo {
-          width: calc(100% - 180px);
-          height: 180px;
+        .timeOfEnd {
+          color: hsl(0, 0%, 100%);
+          font-size: 0.8rem;
+          font-weight: 100;
+          float: right;
         }
-            .albumInfo--style {
-              margin: 0;
-              margin-top: 10px;
-              padding-left: 30px;
-            }
-            .albumInfo__title {
-              color: #FFF;
-            }
-            .albumInfo__song {
-              color: #FFF;
-              font-size: 1rem;
-            }
-            .albumInfo__player {
-              color: #FFF;
-              opacity: 0.5;
-              font-size: 0.8rem;
-            }
+    /* playing bar */
+    .playingBar {
+      width: 100%;
+      height: 5px;
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      background-color: hsl(0, 0%, 70%);
+    }
+    .playingState {
+      width: 30%;
+      height: 5px;
+      background-color: hsl(0, 0%, 100%);
+      transition: width 0.3s linear;
+    }
 
 
 
@@ -154,12 +156,13 @@ body {
 /***********************************/
 .controlBoard {
   width: 25%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 200px;
+  position: absolute;
+  bottom: 100px;
+  left: 37.5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /*display: none;*/
 }
     .controlButton {
       width: 30px;
@@ -208,6 +211,59 @@ body {
 
 
 /*  sign in board  */
-.signInBoard {
+.unlockBoard {
+  /*display: none;*/
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: calc((100% - 300px)/ 2);
+  top: 80px;
   display: none;
 }
+    .headPic {
+      width: 70px;
+      height: 70px;
+      background-image: url("../img/headimg.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50%;
+      position: relative;
+    }
+    .username {
+      margin-top: 10px;
+      color: hsl(0, 0%, 100%);
+      text-align: center;
+    }
+    .password {
+      width: 200px;
+      height: 25px;
+      font-size: 0.8rem;
+      color: hsl(0, 0%, 100%);
+      background-color: rgba(225, 225, 225, 0.3);
+      display: block;
+      border: 0;
+      margin-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+      text-indent: 5px;
+      letter-spacing: 1.5px;
+    }
+    .password::placeholder {
+      color: hsl(0, 0%, 100%);
+    }
+    .signinButton {
+      width: 30px;
+      height: 30px;
+      background-color: rgba(225, 225, 225, 0.3);
+      border-radius: 50%;
+      position: absolute;
+      top: 126.25px;
+      right: 10px;
+    }
+        .signinSvg {
+          width: 100%;
+          height: 100%;
+        }
