@@ -7,7 +7,8 @@
   </head>
   <body>
     <section class="screen">
-      <div class="musicPlayerBoard">
+      <!-- music player board -->
+      <div class="musicPlayerBoard" id="musicPlayerBoard">
         <div class="albumCover"></div>
         <h3 class="albumContext albumTitle">This Is What It Feels Like</h3>
         <h5 class="albumContext albumPlayer">Armin van Buuren<br />Trevor Guthrie</h5>
@@ -32,29 +33,35 @@
           </div>
         </div>
         <div class="timeBox">
-          <div class="passedTime">03:40</div>
-          <div class="timeOfEnd">04:47</div>
+          <div class="passedTime">00:56</div>
+          <div class="timeOfEnd">03:13</div>
         </div>
         <div class="playingBar">
-          <div class="playingState"></div>
+          <div class="playingState" id="playingState"></div>
         </div>
       </div>
+      <!-- control board -->
       <div class="controlBoard">
-        <div class="controlButton unlock"></div>
-        <div class="controlButton restart"></div>
-        <div class="controlButton shutdown"></div>
+        <div class="controlButton unlock" id="unlock"></div>
+        <div class="controlButton restart" id="restart"></div>
+        <div class="controlButton shutdown" id="shutdown"></div>
       </div>
+      <!-- unlock mac board -->
       <div class="unlockBoard" id="unlockBoard">
         <div class="headPic"></div>
         <p class="username">Franklin Hung</p>
         <input type="password" class="password" id="password" placeholder="PASSWORD"/>
-        <div class="signinButton">
+        <div class="signinButton" id="signinButton">
           <svg class="signinSvg">
             <path class="pathElement" d="M7.5 15 L22.5 15"></path>
             <path class="pathElement" d="M15 7.07 L22.5 15 L15 22.93"></path>
           </svg>
         </div>
       </div>
+      <!-- mac desktop -->
+      <div class="desktop" id="desktop"></div>
     </section>
+
+    <script src="./view/js/main.js"></script>
   </body>
 </html>
