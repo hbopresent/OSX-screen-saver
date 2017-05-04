@@ -11,7 +11,7 @@ input:focus {
   width: 100%;
   height: 100%;
   display: inline-block;
-  background-image: url("../img/background3.jpg");
+  background-image: url("../img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -59,7 +59,7 @@ input:focus {
     .albumCover {
       width: 90%;
       height: 252px;
-      background-image: url("../img/album2.jpeg");
+      background-image: url("../img/album.jpeg");
       background-repeat: no-repeat;
       background-size: contain;
       position: absolute;
@@ -125,11 +125,15 @@ input:focus {
       left: 2.5%;
     }
         .passedTime {
-          color: hsl(0, 0%, 100%);
-          font-size: 0.8rem;
-          font-weight: 100;
           float: left;
+          display: flex;
         }
+            .passedTime__minute,
+            .passedTime__second {
+              color: hsl(0, 0%, 100%);
+              font-size: 0.8rem;
+              font-weight: 100;
+            }
         .timeOfEnd {
           color: hsl(0, 0%, 100%);
           font-size: 0.8rem;
@@ -149,16 +153,6 @@ input:focus {
       width: 20%;
       height: 5px;
       background-color: hsl(0, 0%, 100%);
-      /*transition: width 0.3s linear;*/
-      animation: runPlayingState 224s ease-out infinite;
-    }
-    @keyframes runPlayingState {
-      0% {
-        width: 20%;
-      }
-      100% {
-        width: 100%;
-      }
     }
 
 
@@ -176,7 +170,6 @@ input:focus {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /*display: none;*/
 }
     .controlButton {
       width: 30px;
@@ -285,6 +278,7 @@ input:focus {
       border-radius: 5px;
       text-indent: 5px;
       letter-spacing: 1.5px;
+      transition: background-color 0.2s ease-out;
     }
     .password::placeholder {
       color: hsl(0, 0%, 100%);
@@ -297,6 +291,7 @@ input:focus {
       position: absolute;
       top: 126.25px;
       right: 10px;
+      transition: background-color 0.2s ease-out;
     }
         .signinSvg {
           width: 100%;
@@ -313,7 +308,7 @@ input:focus {
 .desktop {
   width: 100%;
   height: 100%;
-  background-image: url("../img/desktop-screenshot.png");
+  background-image: url("../img/desktopScreen.png");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -324,6 +319,6 @@ input:focus {
 }
 .displayDesktop {
   transform: scale(1);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s 1s ease-out;
   z-index: 10;
 }
