@@ -20,10 +20,10 @@ input:focus {
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  fill: transparent;
+  fill: hsl(0, 0%, 100%);
 }
 .musicPlayerPath {
-  stroke-width: 1;
+  stroke-width: 2;
 }
 
 
@@ -63,7 +63,7 @@ input:focus {
       background-repeat: no-repeat;
       background-size: contain;
       position: absolute;
-      top: 3%;
+      top: 10%;
       left: 5%;
     }
     .albumContext {
@@ -71,15 +71,20 @@ input:focus {
       text-align: center;
       width: 100%;
       color: #FFF;
-      font-weight: 100;
+      font-weight: bold;
     }
     .albumTitle {
       position: absolute;
-      top: 58%;
+      top: 3%;
+      font-size: 1.3rem;
     }
-    .albumPlayer {
+    .songTitle {
       position: absolute;
-      top: 63%;
+      top: 67%;
+    }
+    .songPlayer {
+      position: absolute;
+      top: 73%;
     }
 
     /* controller of music player */
@@ -87,7 +92,7 @@ input:focus {
       width: 100%;
       /*height: 15%;*/
       position: absolute;
-      bottom: 11.5%;
+      bottom: 7%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -100,7 +105,7 @@ input:focus {
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid #FFF;
+      /*border: 1.5px solid #FFF;*/
       border-radius: 50%;
     }
     .playerButton {
@@ -132,12 +137,12 @@ input:focus {
             .passedTime__second {
               color: hsl(0, 0%, 100%);
               font-size: 0.8rem;
-              font-weight: 100;
+              font-weight: bold;
             }
         .timeOfEnd {
           color: hsl(0, 0%, 100%);
           font-size: 0.8rem;
-          font-weight: 100;
+          font-weight: bold;
           float: right;
         }
     /* playing bar */

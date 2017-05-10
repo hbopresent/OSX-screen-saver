@@ -77,6 +77,7 @@ var screenlock = (function() {
      }
    }
 
+
    function initialize() {
      bindListeners();
      playingMusic();
