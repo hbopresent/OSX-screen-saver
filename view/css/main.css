@@ -85,6 +85,7 @@ input:focus {
     .songPlayer {
       position: absolute;
       top: 73%;
+      color: hsl(0, 0%, 90%);
     }
 
     /* controller of music player */
@@ -139,12 +140,16 @@ input:focus {
               font-size: 0.8rem;
               font-weight: bold;
             }
-        .timeOfEnd {
-          color: hsl(0, 0%, 100%);
-          font-size: 0.8rem;
-          font-weight: bold;
+        .remainingTime {
           float: right;
+          display: flex;
         }
+            .remainingTime__minute,
+            .remainingTime__second {
+              color: hsl(0, 0%, 100%);
+              font-size: 0.8rem;
+              font-weight: bold;
+            }
     /* playing bar */
     .playingBar {
       width: 100%;
@@ -152,7 +157,7 @@ input:focus {
       position: absolute;
       bottom: 0%;
       left: 0%;
-      background-color: hsl(0, 0%, 70%);
+      background-color: hsl(0, 0%, 60%);
     }
     .playingState {
       width: 20%;

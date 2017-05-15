@@ -7,10 +7,14 @@ var screenlock = (function() {
    var desktop = document.getElementById("desktop");
    var passedTimeMinute = document.getElementById("passedTimeMinute");
    var passedTimeSecond = document.getElementById("passedTimeSecond");
+   var remainingTimeMinute = document.getElementById("remainingTimeMinute");
+   var remainingTimeSecond = document.getElementById("remainingTimeSecond");
    var playingMusicFlag = null;
    var playingStateWidth = 20;
    var playedSecond = null;
    var playedMinute = null;
+   var remainingSecond = null;
+   var remainingMinute = null;
 
    function bindListeners() {
      unlock.addEventListener("click", unlockScreen);
@@ -32,8 +36,8 @@ var screenlock = (function() {
 
    function startMac() {
      password.blur();
-     password.style.backgroundColor = "rgba(225, 225, 225, 0.05)";
-     signinButton.style.backgroundColor = "rgba(225, 225, 225, 0.05)";
+     password.style.backgroundColor = "rgba(225, 225, 225, 0.1)";
+     signinButton.style.backgroundColor = "rgba(225, 225, 225, 0.1)";
      desktop.classList.add("displayDesktop");
    }
 
@@ -45,12 +49,13 @@ var screenlock = (function() {
        }
        playingState.style.width = playingStateWidth + "%";
        playingStateWidth += 0.518;
-       updateMusicTime();
+       addPassedTime();
+       countDownMusicTime();
      }, 1000);
    }
 
-   //  update music time
-   function updateMusicTime() {
+   //  add passed time
+   function addPassedTime() {
      // update played seconds
      playedSecond = parseInt(passedTimeSecond.innerHTML) + 1;
 
@@ -73,6 +78,32 @@ var screenlock = (function() {
        }
        else {
          passedTimeSecond.innerHTML = playedSecond;
+       }
+     }
+   }
+
+   //  count remaining time of music
+   function countDownMusicTime() {
+     remainingSecond = parseInt(remainingTimeSecond.innerHTML) - 1;
+
+     if(remainingSecond < 0) {
+       remainingTimeSecond.innerHTML = 59;
+
+      //  update remaining minutes
+      remainingMinute = (parseInt(remainingTimeMinute.innerHTML) - 1);
+      if(remainingMinute < 10) {
+       remainingTimeMinute.innerHTML = "0" + remainingMinute + ":";
+      }
+      else {
+       remainingTimeMinute.innerHTML = remainingMinute + ":";
+      }
+     }
+     else {
+       if(remainingSecond < 10) {
+         remainingTimeSecond.innerHTML = "0" + remainingSecond;
+       }
+       else {
+         remainingTimeSecond.innerHTML = remainingSecond;
        }
      }
    }
