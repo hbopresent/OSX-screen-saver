@@ -19,9 +19,22 @@ var screenlock = (function() {
    function bindListeners() {
      unlock.addEventListener("click", unlockScreen);
      signinButton.addEventListener("click", startMac);
+     // sign in to mac
      window.addEventListener("keydown", function(e) {
        if(e.code == "Enter") {
-         startMac();
+         if(password.value === "screenlockdesignwork") {
+           startMac();
+         }
+         else {
+           console.log("remove class");
+           password.classList.add("unavailablePassword");
+         }
+       }
+     });
+     // remove wrong password animation class
+     password.addEventListener("animationend", function(e) {
+       if(e.animationName === "unavailablePassword") {
+         password.classList.remove("unavailablePassword");
        }
      });
    }
